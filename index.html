@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyway Survivor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="main-menu" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1>Welcome to the Game</h1>
+        <button id="start-game-btn">Start Game</button>
+        <button id="credits-btn">Credits</button>
+        <button id="settings-btn">Settings</button>
+    </div>
+
+<!-- Credits Modal -->
+<div id="credits-modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Credits</h2>
+        <p>Credits to crazymaplebutter for literally everything.</p>
+        <button id="close-credits-btn">Close</button>
+    </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settings-modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Settings</h2>
+        <label for="toggle-score-display">Show Score:</label>
+        <input type="checkbox" id="toggle-score-display" checked>
+        <button id="close-settings-btn">Close</button>
+    </div>
+</div>
+
+<!-- Credits Modal -->
+<div id="credits-modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Credits</h2>
+        <p>Credits to crazymaplebutter for literally everything.</p>
+        <button id="close-credits-btn">Close</button>
+    </div>
+</div>
+
+<!-- Settings Modal -->
+<div id="settings-modal" style="display: none;">
+    <div class="modal-content">
+        <h2>Settings</h2>
+        <label for="toggle-score-display">Show Score:</label>
+        <input type="checkbox" id="toggle-score-display" checked>
+        <button id="close-settings-btn">Close</button>
+    </div>
+</div>
+
+    <!-- Game Container -->
+    <div id="game-container" style="display: none;">
+        <div id="player"></div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" style="display: none;">
+        <h2>Game Over</h2>
+        <p>Your final score: <span id="final-score"></span></p>
+        <button id="retry-btn">Retry</button>
+        <button id="back-to-menu-btn">Back to Main Menu</button>
+    </div>
+
+    <!-- Score Display -->
+    <div id="score" style="display: none;">Score: 0</div>
+
+    <script src="game.js"></script>
+</body>
+</html>
