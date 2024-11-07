@@ -47,7 +47,6 @@ function resetGameState() {
     isMovingLeft = false;
     isMovingRight = false;
 
-    // Clear all obstacles and reset the player
     const allObstacles = document.querySelectorAll('.obstacle');
     allObstacles.forEach(obstacle => obstacle.remove());
     player.style.left = playerPosition + 'px';
@@ -89,7 +88,6 @@ function showGameOver() {
 }
 
 function startGame() {
-    // Start game loop only when the game is not over
     if (!gameOver) {
         for (let i = 0; i < initialObstacleCount; i++) {
             generateObstacle();
@@ -140,19 +138,16 @@ function moveObstacles() {
         const topPosition = parseInt(obstacle.style.top, 10) + obstacleSpeed;
         obstacle.style.top = topPosition + 'px';
 
-        // Only remove the obstacle when it has fully gone off the screen
         const obstacleBottom = topPosition + parseInt(obstacle.style.height, 10);
-        if (obstacleBottom >= gameContainer.clientHeight) {
-            // Continue to the next obstacle
+
+        if (obstacleBottom > gameContainer.clientHeight + 100) {
             obstacles.splice(i, 1);
             obstacle.remove();
-            i--; // Decrement index to avoid skipping the next obstacle
+            i--;
             continue;
         }
 
         const obstacleRect = obstacle.getBoundingClientRect();
-
-        // Collision detection
         if (
             playerRect.left < obstacleRect.right &&
             playerRect.right > obstacleRect.left &&
@@ -185,12 +180,11 @@ function gameLoop() {
 
     score += scoreIncrement;
 
-    // Check the checkbox state and update the score display visibility
     if (toggleScoreDisplay.checked) {
         scoreDisplay.textContent = `Score: ${Math.floor(score)}`;
-        scoreDisplay.style.display = 'block'; // Show the score
+        scoreDisplay.style.display = 'block';
     } else {
-        scoreDisplay.style.display = 'none'; // Hide the score
+        scoreDisplay.style.display = 'none';
     }
 
     const currentTime = Date.now();
@@ -215,7 +209,6 @@ retryBtn.addEventListener('click', () => {
 });
 backToMenuBtn.addEventListener('click', showMainMenu);
 
-// Key event listeners for player movement
 document.addEventListener('keydown', (event) => {
     if (gameOver) return;
 
@@ -234,5 +227,4 @@ document.addEventListener('keyup', (event) => {
     }
 });
 
-// Show the main menu on load
 showMainMenu();
