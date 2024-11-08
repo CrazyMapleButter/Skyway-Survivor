@@ -133,6 +133,12 @@ function moveObstacles() {
 
     const playerRect = player.getBoundingClientRect();
 
+    let offScreenOffset = 100;
+
+    if (Math.floor(score) >= 800) {
+        offScreenOffset = 200;
+    }
+
     for (let i = 0; i < obstacles.length; i++) {
         const obstacle = obstacles[i];
         const topPosition = parseInt(obstacle.style.top, 10) + obstacleSpeed;
@@ -140,7 +146,7 @@ function moveObstacles() {
 
         const obstacleBottom = topPosition + parseInt(obstacle.style.height, 10);
 
-        if (obstacleBottom > gameContainer.clientHeight + 100) {
+        if (obstacleBottom > gameContainer.clientHeight + offScreenOffset) {
             obstacles.splice(i, 1);
             obstacle.remove();
             i--;
